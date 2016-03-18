@@ -1,4 +1,4 @@
-# Laravel-Jusibe
+# laravel-jusibe
 
 [![Latest Stable Version](https://poser.pugx.org/unicodeveloper/laravel-jusibe/v/stable.svg)](https://packagist.org/packages/unicodeveloper/laravel-jusibe)
 [![License](https://poser.pugx.org/unicodeveloper/laravel-jusibe/license.svg)](LICENSE.md)
