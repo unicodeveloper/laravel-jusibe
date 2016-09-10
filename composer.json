@@ -31,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Unicodeveloper\\Jusibe\\": "src"
+            "Unicodeveloper\\JusibePack\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Unicodeveloper\\Jusibe\\Test\\": "tests"
+            "Unicodeveloper\\JusibePack\\Test\\": "tests"
         }
     },
     "scripts": {
