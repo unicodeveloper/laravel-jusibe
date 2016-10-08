@@ -27,9 +27,6 @@ Another alternative is to simply add the following line to the require block of 
 
 Then run `composer install` or `composer update` to download it and have the autoloader updated.
 
-
-# WIP - PLEASE DON'T USE IN PRODUCTION YET!!!
-
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
