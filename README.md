@@ -27,6 +27,128 @@ Another alternative is to simply add the following line to the require block of 
 
 Then run `composer install` or `composer update` to download it and have the autoloader updated.
 
+Once Laravel Jusibe is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
+
+* `Unicodeveloper\JusibePack\JusibeServiceProvider::class`
+
+Also, register the Facade like so:
+
+```php
+'aliases' => [
+    ...
+    'Jusibe' => Unicodeveloper\JusibePack\Facades\Jusibe::class,
+    ...
+]
+```
+
+## Configuration
+
+You can publish the configuration file using this command:
+
+```bash
+php artisan vendor:publish --provider="Unicodeveloper\JusibePack\JusibeServiceProvider"
+```
+
+A configuration-file named `jusibe.php` with some sensible defaults will be placed in your `config` directory:
+
+```php
+<?php
+
+return [
+    /**
+     * Public Key From Jusibe Dashboard
+     *
+     */
+    'publicKey' => getenv('JUSIBE_PUBLIC_KEY'),
+    /**
+     * Access Token From Jusibe  Dashboard
+     *
+     */
+    'accessToken' => getenv('JUSIBE_ACCESS_TOKEN'),
+];
+```
+
+Get the `publicKey` and `accessToken` from [Jusibe API Keys Section](https://jusibe.com/cp/?section=api-keys)
+
+## Usage
+
+Available methods for use are:
+```php
+
+/**
+ * Send SMS using the Jusibe API
+ * @param  array $payload
+ * @return object
+ */
+Jusibe::sendSMS($payload)->getResponse();
+
+/**
+ * Check the available SMS credits left in your Jusibe account
+ * @return object
+ */
+Jusibe::checkAvailableCredits()->getResponse();
+
+/**
+ * Check the delivery status of a sent SMS
+ * @param  string $messageID
+ * @return object
+ */
+Jusibe::checkDeliveryStatus('8nb1wrgdjw')->getResponse();
+```
+
+### Send an SMS
+
+```php
+
+<?php
+
+$message = "I LOVE YOU, BABY";
+
+$payload = [
+    'to' => '7079740987',
+    'from' => 'PROSPER DATING NETWORK',
+    'message' => $message
+];
+
+try {
+    $response = Jusibe::sendSMS($payload)->getResponse();
+    print_r($response);
+} catch(Exception $e) {
+    echo $e->getMessage();
+}
+
+```
+
+### Check SMS Credits
+
+```php
+
+<?php
+
+try {
+   $response = Jusibe::checkAvailableCredits()->getResponse();
+   print_r($response);
+} catch(Exception $e) {
+   echo $e->getMessage();
+}
+
+```
+
+### Check Delivery Status
+
+```php
+
+<?php
+
+try {
+    $response = Jusibe::checkDeliveryStatus('8nb1wrgdjw')->getResponse();
+    print_r($response);
+} catch(Exception $e) {
+    echo $e->getMessage();
+}
+
+```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
