@@ -12,7 +12,7 @@
 
 Before you go ahead to install the package, make sure you have [Jusibe PHP library](https://github.com/unicodeveloper/jusibe-php-lib) installed.
 
-[PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.3+, and [Composer](https://getcomposer.org) are required
+[PHP](https://php.net) 7.0+ or [HHVM](http://hhvm.com) 3.3+, and [Composer](https://getcomposer.org) are required
 First, pull in the package through Composer.
 
 ``` bash
