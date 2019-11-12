@@ -149,6 +149,72 @@ try {
 
 ```
 
+### Send a Bulk SMS
+
+```php
+
+<?php
+
+// include your composer dependencies
+require_once 'vendor/autoload.php';
+
+use Unicodeveloper\Jusibe\Jusibe;
+
+$publicKey = 'xxxxxxxxxxxxxx';
+$accessToken = 'xxxxxxxxxxxxxx';
+
+$jusibe = new Jusibe($publicKey, $accessToken);
+
+$message = "You are invited for party!!!";
+
+$payload = [
+    'to' => '7079740987,8077139164',
+    'from' => 'DOZIE GROUP',
+    'message' => $message
+];
+
+try {
+    $response = $jusibe->sendBulkSMS($payload)->getResponse();
+    print_r($response);
+} catch(Exception $e) {
+    echo $e->getMessage();
+}
+
+```
+
+**Response Info for Developer**
+
+![Send BulkSMS Response](https://user-images.githubusercontent.com/19904579/46137560-cf37bf00-c241-11e8-9dc6-7096bb0278f4.png)
+
+### Check Bulk Delivery Status
+
+```php
+
+<?php
+
+// include your composer dependencies
+require_once 'vendor/autoload.php';
+
+use Unicodeveloper\Jusibe\Jusibe;
+
+$publicKey = 'xxxxxxxxxxxxxx';
+$accessToken = 'xxxxxxxxxxxxxx';
+
+$jusibe = new Jusibe($publicKey, $accessToken);
+
+try {
+    $response = $jusibe->checkBulkDeliveryStatus('n2v9gby1jy')->getResponse();
+    print_r($response);
+} catch(Exception $e) {
+    echo $e->getMessage();
+}
+
+```
+
+**Response Info for Developer**
+
+![Check Bulk Delivery Status Response](https://user-images.githubusercontent.com/19904579/46137669-0a39f280-c242-11e8-9143-8b3ec68ed84f.png)
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
